@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import {
   ArrowUpRight, Atom, Cpu, Music2, Mic2, Code2, PenTool, Languages, Trophy,
   Camera, Wand2, Brain, Palette,
@@ -23,6 +25,7 @@ const HERO_SLIDES: Slide[] = [
     eyebrow: "Singing Artist: Hindustani Classical",
     title: "",
     body: "Stage performances & training with the guru-shishya tradition of Indian classical music.",
+    objectPosition: "center 20%",
   },
   {
     src: "/photo-starparivar-set.jpg",
@@ -31,6 +34,7 @@ const HERO_SLIDES: Slide[] = [
     eyebrow: "Child Artist · Star Plus · National Television",
     title: "",
     body: "On set with Barun Sobti and Ridhi Dogra, Iss Pyar Ko Kya Naam Doon.",
+    objectPosition: "top center",
   },
   {
     src: "/photo-lab-team.jpg",
@@ -39,6 +43,7 @@ const HERO_SLIDES: Slide[] = [
     eyebrow: "Scientist · McGill Cancer Cell Lab · March 2025",
     title: "",
     body: "Gel electrophoresis, Zeiss microscopy, pipetting",
+    objectPosition: "top center",
   },
   {
     src: "/photo-moon-stargazing.jpg",
@@ -47,6 +52,7 @@ const HERO_SLIDES: Slide[] = [
     eyebrow: "Self-Taught Junior Astronomer",
     title: "",
     body: "Constellations, Black Voids & Shooting Stars",
+    objectPosition: "center center",
   },
   {
     src: "/photo-jun-ye-selfie.jpg",
@@ -55,6 +61,7 @@ const HERO_SLIDES: Slide[] = [
     eyebrow: "Physicist · Jun Ye's Anna McPherson Seminar · McGill 2025",
     title: "",
     body: "Youngest attendee at a Nobel-adjacent physics lecturar's seminar.",
+    objectPosition: "top center",
   },
   {
     src: "/photo-robotics-pit.jpg",
@@ -63,6 +70,7 @@ const HERO_SLIDES: Slide[] = [
     eyebrow: "Engineer · FRC Team 7700",
     title: "",
     body: "Builds, mechanicals, and teamwork in competition robotics.",
+    objectPosition: "top center",
   },
 ];
 
@@ -89,7 +97,7 @@ const FEATURED: BentoItem[] = [
     id: "f-frc", size: "xl", eyebrow: "Robotics",
     title: "FRC Team 7700",
     blurb: "Build seasons, mechanical instinct, and the controlled chaos of competition robotics.",
-    image: "/photo-robotics-pit.jpg", meta: "Cluster 04 · Robotics",
+    image: "/photo-robotics-pit.jpg", imagePosition: "top center", meta: "Cluster 04 · Robotics",
     detail: (
       <div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem", marginBottom: "1rem" }}>
@@ -106,7 +114,7 @@ const FEATURED: BentoItem[] = [
     id: "f-novel", size: "lg", eyebrow: "Writing",
     title: "The Novel Cycle",
     blurb: "A multi-book story world I've been building for years.",
-    image: "/photo-screenplay-board.jpg", meta: "Cluster 05 · Writing",
+    image: "/photo-screenplay-board.jpg", imagePosition: "center", meta: "Cluster 05 · Writing",
     detail: (
       <div>
         <img src="/photo-screenplay-board.jpg" alt="Story structure board" style={{ width: "100%", borderRadius: "4px", marginBottom: "1rem", objectFit: "cover", aspectRatio: "16/9" }} />
@@ -118,7 +126,7 @@ const FEATURED: BentoItem[] = [
     id: "f-vocal", size: "md", eyebrow: "Performance",
     title: "Hindustani Vocal",
     blurb: "Stage repertoire, raagas, and live performance reels.",
-    image: "/photo-singing.jpg", meta: "Cluster 06 · Music",
+    image: "/photo-singing.jpg", imagePosition: "center 20%", meta: "Cluster 06 · Music",
     detail: (
       <div>
         <img src="/photo-singing.jpg" alt="Stage performance" style={{ width: "100%", borderRadius: "4px", marginBottom: "1rem", objectFit: "cover", aspectRatio: "16/9" }} />
@@ -138,7 +146,7 @@ const FEATURED: BentoItem[] = [
     id: "f-ap", size: "md", eyebrow: "Academics",
     title: "AP Track + Olympiads",
     blurb: "The transcript backing the curiosity.",
-    image: "/photo-jun-ye-selfie.jpg", meta: "Cluster 02 · Academics",
+    image: "/photo-jun-ye-selfie.jpg", imagePosition: "top center", meta: "Cluster 02 · Academics",
     detail: (
       <div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem", marginBottom: "1rem" }}>
@@ -155,7 +163,7 @@ const FEATURED: BentoItem[] = [
     id: "f-acting", size: "md", eyebrow: "Screen",
     title: "Child Artist Reel",
     blurb: "Years on screen, in front of a camera and a microphone.",
-    image: "/tv-altbalaji.png", meta: "Cluster 07 · Acting",
+    image: "/tv-altbalaji.png", imagePosition: "top center", meta: "Cluster 07 · Acting",
     detail: (
       <div>
         <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, marginBottom: "1rem" }}>
@@ -175,7 +183,7 @@ const FEATURED: BentoItem[] = [
     id: "f-zion", size: "md", eyebrow: "Tech",
     title: "Zionaxelle",
     blurb: "A multimedia universe I built from scratch.",
-    image: "/photo-studio.jpg", meta: "Cluster 08 · Tech",
+    image: "/photo-studio.jpg", imagePosition: "top center", meta: "Cluster 08 · Tech",
     detail: (
       <div>
         <img src="/photo-studio.jpg" alt="Studio and production setup" style={{ width: "100%", borderRadius: "4px", marginBottom: "1rem", objectFit: "cover", aspectRatio: "16/9" }} />
@@ -419,28 +427,7 @@ const Index = () => {
             { src: "/photo-ymca-event.jpg", label: "Notation", num: "II" },
             { src: "/photo-karate.jpg", label: "Resonance", num: "III" },
           ].map((x, idx) => (
-            <figure
-              key={x.label}
-              data-reveal
-              data-reveal-delay={String(idx * 120)}
-              className="relative aspect-[3/4] overflow-hidden group crumpled-paper film-grain stipple"
-            >
-              <img
-                src={x.src}
-                alt={x.label}
-                width={1600}
-                height={1000}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/95 via-navy-deep/30 to-transparent" />
-              <div className="absolute inset-3 border border-paper/15 pointer-events-none" />
-              <figcaption className="absolute bottom-6 left-6 right-6 text-paper">
-                <span className="font-mono text-xs text-gold tracking-widest">PLATE {x.num}</span>
-                <p className="font-display text-3xl md:text-4xl mt-1 leading-tight">{x.label}</p>
-                <span className="block w-10 h-px bg-gold mt-3 transition-all duration-500 group-hover:w-20" />
-              </figcaption>
-            </figure>
+            <TriptychPlate key={x.label} {...x} idx={idx} />
           ))}
         </div>
       </section>
@@ -448,5 +435,51 @@ const Index = () => {
     </PageShell>
   );
 };
+
+function TriptychPlate({ src, label, num, idx }: { src: string; label: string; num: string; idx: number }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <figure
+        data-reveal
+        data-reveal-delay={String(idx * 120)}
+        onClick={() => setOpen(true)}
+        className="relative aspect-[3/4] overflow-hidden group crumpled-paper film-grain stipple cursor-pointer"
+      >
+        <img
+          src={src}
+          alt={label}
+          width={1600}
+          height={1000}
+          loading="lazy"
+          style={{ objectPosition: "top center" }}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/95 via-navy-deep/30 to-transparent" />
+        <div className="absolute inset-3 border border-paper/15 pointer-events-none" />
+        <figcaption className="absolute bottom-6 left-6 right-6 text-paper">
+          <span className="font-mono text-xs text-gold tracking-widest">PLATE {num}</span>
+          <p className="font-display text-3xl md:text-4xl mt-1 leading-tight">{label}</p>
+          <span className="block w-10 h-px bg-gold mt-3 transition-all duration-500 group-hover:w-20" />
+        </figcaption>
+      </figure>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-2xl p-0 overflow-hidden bg-navy-deep">
+          <DialogTitle className="sr-only">PLATE {num} · {label}</DialogTitle>
+          <img
+            src={src}
+            alt={label}
+            style={{ objectPosition: "top center" }}
+            className="w-full object-cover max-h-[75vh]"
+          />
+          <div className="p-5 border-t border-gold/20">
+            <p className="font-mono text-xs text-gold tracking-widest mb-1">PLATE {num}</p>
+            <p className="font-display text-xl text-paper-contrast">{label}</p>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
 
 export default Index;

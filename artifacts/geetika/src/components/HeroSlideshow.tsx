@@ -9,6 +9,8 @@ export type Slide = {
   eyebrow?: string;
   title: string;
   body?: string;
+  /** CSS object-position value, e.g. "top center", "50% 20%" */
+  objectPosition?: string;
 };
 
 type Props = {
@@ -87,7 +89,8 @@ export function HeroSlideshow({ slides, intervalMs = 6000 }: Props) {
           key={idx}
           src={slide.src}
           alt={slide.alt}
-          className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 ${
+          style={{ objectPosition: slide.objectPosition ?? "top center" }}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
             idx === i ? "opacity-100" : "opacity-0"
           }`}
           aria-hidden={idx !== i}

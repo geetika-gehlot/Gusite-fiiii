@@ -1,27 +1,73 @@
+import { useState } from "react";
 import { Wand as Wand2 } from "lucide-react";
 import { PageShell } from "@/components/SiteChrome";
 import { ArchiveMosaic } from "@/components/ArchiveMosaic";
 import { findCluster } from "@/data/clusters";
 import { useReveal } from "@/hooks/useReveal";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const ON_SCREEN_CREDITS = [
-  { src: "/tv-ddkisan.png",       alt: "Geetika as lead in Salaam India on DD Kisan",           caption: "Lead Role · Salaam India",        channel: "DD Kisan" },
-  { src: "/tv-zeeholi.png",       alt: "Geetika in Woh Apna Sa on Zee TV",                      caption: "Woh Apna Sa · Episode 38",        channel: "Zee TV" },
-  { src: "/tv-barun.png",         alt: "Geetika with Barun Sobti on set",                       caption: "With Barun Sobti",                channel: "Star Parivaar" },
-  { src: "/tv-dalljiet.png",      alt: "Geetika with Dalljiet Kaur",                            caption: "With Dalljiet Kaur",              channel: "Iss Pyar Ko Kya Naam Doon" },
-  { src: "/tv-jayshree.png",      alt: "Geetika with Jayshree T. and Utkarsha Naik",            caption: "With Jayshree T. & Utkarsha Naik",channel: "Star Parivaar" },
-  { src: "/tv-holi.png",          alt: "Geetika with Amit Behl and Priyanka Sharma at Holi",   caption: "With Amit Behl & Priyanka Sharma", channel: "Zee TV, Holi Special" },
-  { src: "/tv-sudeep.png",        alt: "Geetika with Sudeep Sahir",                             caption: "With Sudeep Sahir",               channel: "Zee TV" },
-  { src: "/tv-ridhi.png",         alt: "Geetika with Ridhi Dogra",                              caption: "With Ridhi Dogra",                channel: "On Set" },
-  { src: "/tv-onset.png",         alt: "Geetika with Shalini Arora and Buneet Kapoor",          caption: "With Shalini Arora & Buneet Kapoor", channel: "On Set" },
-  { src: "/tv-altbalaji.png",     alt: "Geetika in Alt Balaji Rhymes Series",                   caption: "Lead · 5 Rhymes Series",          channel: "Alt Balaji" },
-  { src: "/tv-dubbing.png",       alt: "Geetika in dubbing studio recording Veere Di Wedding",  caption: "Dubbing Session",                 channel: "Veere Di Wedding · Hindi Medium" },
-  { src: "/tv-asianpaints.png",   alt: "Geetika in Asian Paints Eco Xpress advertisement",      caption: "Asian Paints Eco Xpress",         channel: "Advertisement" },
-  { src: "/tv-9xm.png",           alt: "Geetika in 9XM 70th Independence Day promo",            caption: "70th Independence Day Promo",     channel: "9XM Salaam" },
-  { src: "/tv-bandit.png",        alt: "Geetika performing at Band-it Festival 2019",           caption: "Band-it Festival 2019 · Level 2", channel: "Furtado's School of Music" },
-  { src: "/tv-sareesuk.png",      alt: "Geetika modelling for Sarees Bazaar UK",                caption: "Sarees Bazaar UK",                channel: "International Modelling" },
-  { src: "/tv-gladrags-group.png",alt: "Gladrags Little Miss India Top 10 finalists",           caption: "Top 10 Finalist",                 channel: "Gladrags Little Miss India" },
+  { src: "/tv-ddkisan.png",       alt: "Geetika as lead in Salaam India on DD Kisan",           caption: "Lead Role · Salaam India",        channel: "DD Kisan",                          objectPosition: "top center" },
+  { src: "/tv-zeeholi.png",       alt: "Geetika in Woh Apna Sa on Zee TV",                      caption: "Woh Apna Sa · Episode 38",        channel: "Zee TV",                            objectPosition: "top center" },
+  { src: "/tv-barun.png",         alt: "Geetika with Barun Sobti on set",                       caption: "With Barun Sobti",                channel: "Star Parivaar",                     objectPosition: "top center" },
+  { src: "/tv-dalljiet.png",      alt: "Geetika with Dalljiet Kaur",                            caption: "With Dalljiet Kaur",              channel: "Iss Pyar Ko Kya Naam Doon",         objectPosition: "top center" },
+  { src: "/tv-jayshree.png",      alt: "Geetika with Jayshree T. and Utkarsha Naik",            caption: "With Jayshree T. & Utkarsha Naik",channel: "Star Parivaar",                    objectPosition: "top center" },
+  { src: "/tv-holi.png",          alt: "Geetika with Amit Behl and Priyanka Sharma at Holi",   caption: "With Amit Behl & Priyanka Sharma", channel: "Zee TV, Holi Special",             objectPosition: "top center" },
+  { src: "/tv-sudeep.png",        alt: "Geetika with Sudeep Sahir",                             caption: "With Sudeep Sahir",               channel: "Zee TV",                            objectPosition: "top center" },
+  { src: "/tv-ridhi.png",         alt: "Geetika with Ridhi Dogra",                              caption: "With Ridhi Dogra",                channel: "On Set",                            objectPosition: "top center" },
+  { src: "/tv-onset.png",         alt: "Geetika with Shalini Arora and Buneet Kapoor",          caption: "With Shalini Arora & Buneet Kapoor", channel: "On Set",                         objectPosition: "top center" },
+  { src: "/tv-altbalaji.png",     alt: "Geetika in Alt Balaji Rhymes Series",                   caption: "Lead · 5 Rhymes Series",          channel: "Alt Balaji",                        objectPosition: "top center" },
+  { src: "/tv-dubbing.png",       alt: "Geetika in dubbing studio recording Veere Di Wedding",  caption: "Dubbing Session",                 channel: "Veere Di Wedding · Hindi Medium",   objectPosition: "top center" },
+  { src: "/tv-asianpaints.png",   alt: "Geetika in Asian Paints Eco Xpress advertisement",      caption: "Asian Paints Eco Xpress",         channel: "Advertisement",                     objectPosition: "top center" },
+  { src: "/tv-9xm.png",           alt: "Geetika in 9XM 70th Independence Day promo",            caption: "70th Independence Day Promo",     channel: "9XM Salaam",                        objectPosition: "top center" },
+  { src: "/tv-bandit.png",        alt: "Geetika performing at Band-it Festival 2019",           caption: "Band-it Festival 2019 · Level 2", channel: "Furtado's School of Music",         objectPosition: "top center" },
+  { src: "/tv-sareesuk.png",      alt: "Geetika modelling for Sarees Bazaar UK",                caption: "Sarees Bazaar UK",                channel: "International Modelling",           objectPosition: "top center" },
+  { src: "/tv-gladrags-group.png",alt: "Gladrags Little Miss India Top 10 finalists",           caption: "Top 10 Finalist",                 channel: "Gladrags Little Miss India",        objectPosition: "top center" },
 ];
+
+function PhotoCard({
+  src, alt, caption, channel, objectPosition,
+}: {
+  src: string; alt: string; caption: string; channel: string; objectPosition?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <figure
+        onClick={() => setOpen(true)}
+        className="relative overflow-hidden group break-inside-avoid mb-3 crumpled-paper film-grain cursor-pointer"
+      >
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          style={{ objectPosition: objectPosition ?? "top center" }}
+          className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <figcaption className="absolute bottom-0 left-0 right-0 px-3 py-2.5 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+          <p className="font-display text-[0.75rem] font-medium text-paper leading-tight">{caption}</p>
+          <p className="font-mono text-[0.55rem] uppercase tracking-[0.2em] text-gold/80 mt-0.5">{channel}</p>
+        </figcaption>
+      </figure>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-2xl p-0 overflow-hidden bg-navy-deep">
+          <DialogTitle className="sr-only">{caption}</DialogTitle>
+          <img
+            src={src}
+            alt={alt}
+            style={{ objectPosition: objectPosition ?? "top center" }}
+            className="w-full object-contain max-h-[75vh]"
+          />
+          <div className="p-5 border-t border-gold/20">
+            <p className="font-display text-base text-paper-contrast leading-tight">{caption}</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-gold mt-1">{channel}</p>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
 
 const Works = () => {
   useReveal();
@@ -65,25 +111,15 @@ const Works = () => {
           </div>
 
           <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3" data-reveal>
-            {ON_SCREEN_CREDITS.map(({ src, alt, caption, channel }, idx) => (
-              <figure
+            {ON_SCREEN_CREDITS.map(({ src, alt, caption, channel, objectPosition }) => (
+              <PhotoCard
                 key={caption}
-                data-reveal
-                data-reveal-delay={String((idx % 4) * 80)}
-                className="relative overflow-hidden group break-inside-avoid mb-3 crumpled-paper film-grain"
-              >
-                <img
-                  src={src}
-                  alt={alt}
-                  loading="lazy"
-                  className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <figcaption className="absolute bottom-0 left-0 right-0 px-3 py-2.5 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="font-display text-[0.75rem] font-medium text-paper leading-tight">{caption}</p>
-                  <p className="font-mono text-[0.55rem] uppercase tracking-[0.2em] text-gold/80 mt-0.5">{channel}</p>
-                </figcaption>
-              </figure>
+                src={src}
+                alt={alt}
+                caption={caption}
+                channel={channel}
+                objectPosition={objectPosition}
+              />
             ))}
           </div>
         </div>

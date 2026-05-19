@@ -9,7 +9,8 @@ import { useReveal } from "@/hooks/useReveal";
 
 type IconCmp = React.ComponentType<{ className?: string }>;
 
-const CV_PDF_URL = "https://www.guelphhumber.ca/sites/default/files/page_files/Sample_CV-new2.pdf";
+const LONG_CV_URL = "/GeetikaGehlot-LongCV.pdf";
+const RESUME_URL = "/Geetika_Gehlot_Resume.pdf";
 
 const CVResume = () => {
   useReveal();
@@ -222,7 +223,7 @@ function CVDocumentGrid() {
           title="CV"
           subtitle="Full curriculum vitae"
           badge="PDF · A4"
-          pdfUrl={CV_PDF_URL}
+          pdfUrl={LONG_CV_URL}
           icon={FileText}
           footerMeta="Updated 2025"
         />
@@ -230,7 +231,7 @@ function CVDocumentGrid() {
           title="Résumé"
           subtitle="One-page condensed version"
           badge="PDF · Letter"
-          pdfUrl={CV_PDF_URL}
+          pdfUrl={RESUME_URL}
           icon={BookOpen}
           footerMeta="Updated 2025"
         />
@@ -261,32 +262,71 @@ function CVDocumentGrid() {
 
 function CVContent() {
   const skills = [
-    "Full-stack Web Designing", "React", "TypeScript", "Python", "Git",
-    "FL Studio", "DaVinci Resolve", "Music Production", "Video Editing",
-    "Freelance Design", "Event Hosting & Production",
-    "CAD (Onshape / SolidWorks)", "Robotics (FRC)", "AI & Machine Learning",
+    "React", "TypeScript", "Python", "Git",
+    "FL Studio", "DaVinci Resolve", "Music Production",
+    "Video Editing", "Photography", "Freelance Design",
+    "Event Hosting & Production",
+    "CAD (Onshape / SolidWorks)", "Robotics (FRC)",
+    "Machine Learning Fundamentals",
+    "Full-stack Web Development",
   ];
   const languages = ["English", "French", "Hindi", "Marwari"];
 
   const experience = [
-    { role: "Frontend Lead", date: "Jan 24, Present", org: "Alpha", place: "Cupertino, CA",
-      desc: "Spearheaded development of a suite of progressive web applications using React, Swift, and GraphQL." },
-    { role: "Frontend Engineer", date: "Sep 22, Dec 23", org: "Sigma", place: "New York, NY",
-      desc: "Enhanced UI for the Sigma Web Player using React and Redux, achieving a 25% increase in engagement." },
-    { role: "Junior Software Engineer", date: "Feb 20, Dec 23", org: "Omega", place: "Menlo Park, CA",
-      desc: "Owned feature lifecycle from concept to deployment with a focus on responsive design and accessibility." },
+    {
+      role: "President",
+      date: "2025 – Present",
+      org: "YMCA Youth Co-op (NDG-Westmount)",
+      place: "Montréal, QC",
+      desc: "Led youth cooperative team. Finance, marketing, HR, and organizational development. Helped establish co-op structure and public outreach.",
+    },
+    {
+      role: "Engineer & Programmer",
+      date: "2024 – Present",
+      org: "FIRST Robotics Competition — Team 7700",
+      place: "Montréal, QC",
+      desc: "Robotics engineering, fabrication, CAD design in Onshape / SolidWorks, systems thinking, and competition preparation. Contributed to mechanical and programming subsystems.",
+    },
+    {
+      role: "Studio Volunteer",
+      date: "2025",
+      org: "Westmount Library",
+      place: "Montréal, QC",
+      desc: "Mentored children in coding and digital creativity. Assisted with creative technology activities and learning programs.",
+    },
   ];
 
   const education = [
-    { role: "Master of Science in Computer Science", date: "Sep 18, Jun 20", org: "Astra University", place: "Stanford, CA",
-      desc: "Specialized in Software Engineering. Thesis: Scalable Architectures for Real-Time Web Applications. Distinction." },
-    { role: "Bachelor of Science in Software Engineering", date: "Sep 15, Sep 18", org: "Nova University", place: "Providence, RI",
-      desc: "Honors. Coursework: Advanced Algorithms, Web Development, UI Design." },
+    {
+      role: "Secondary V — Expected 2026",
+      date: "2024 – 2026",
+      org: "Westmount High School",
+      place: "Montréal, QC",
+      desc: "Québec secondary curriculum. Strong performance in mathematics, sciences, and humanities. Jazz ensemble member. YMCA Youth Co-op leadership.",
+    },
+    {
+      role: "Advanced Secondary Program",
+      date: "2022 – 2024",
+      org: "Narayana Co Kaveri School",
+      place: "India",
+      desc: "Rigorous STEM-focused academic stream. University-level coursework in physics, chemistry, mathematics, and biology at age 13.",
+    },
+    {
+      role: "Top-most Batch",
+      date: "2022 – 2024",
+      org: "Allen Career Institute",
+      place: "India",
+      desc: "Elite preparation for competitive STEM examinations. Advanced Olympiad-level mathematics and engineering problem-solving.",
+    },
   ];
 
   const certs = [
-    { title: "Alpha Certified Developer Associate", date: "Issued 2019" },
-    { title: "Beta Certified Developer Associate", date: "Issued 2023" },
+    { title: "CPR & First Aid Certified", date: "Montréal" },
+    { title: "TCS ION IntelliGem — National Winner", date: "Twice" },
+    { title: "Top Finalist — Gladrags Little Miss India", date: "" },
+    { title: "School President & Class Valedictorian", date: "Grades 3 & 5" },
+    { title: "SOF Olympiads, IOQM, JSO — High Rankings", date: "India" },
+    { title: "100 History & Math, 97 Science — EMSB Exams", date: "2024" },
   ];
 
   return (
@@ -296,17 +336,19 @@ function CVContent() {
           <span className="h-14 w-14 rounded-full bg-gradient-to-br from-gold/40 to-primary/30 border border-border" />
           <div>
             <h2 className="font-display text-xl text-ink leading-tight">Geetika Gehlot</h2>
-            <p className="text-xs text-ink-soft">she/her</p>
+            <p className="text-xs text-ink-soft">Secondary V · she/her</p>
           </div>
         </div>
 
-        <CVSection label="About"><p className="text-sm">Student</p></CVSection>
+        <CVSection label="About">
+          <p className="text-sm leading-relaxed">Multidisciplinary student · Physics · Engineering · Music · Media · Writing · Leadership · Montréal, QC</p>
+        </CVSection>
 
         <CVSection label="Contact">
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2"><Mail className="h-3.5 w-3.5 text-gold" /><a className="hover:text-gold break-all" href="mailto:geetikagehlot2009@gmail.com">geetikagehlot2009@gmail.com</a></li>
-            <li className="flex items-center gap-2"><Globe className="h-3.5 w-3.5 text-gold" /><span>geetikagehlot.com</span></li>
-            <li className="flex items-center gap-2"><Linkedin className="h-3.5 w-3.5 text-gold" /><span>linkedin.com</span></li>
+            <li className="flex items-center gap-2"><Globe className="h-3.5 w-3.5 text-gold" /><span>438-505-9956</span></li>
+            <li className="flex items-center gap-2"><Linkedin className="h-3.5 w-3.5 text-gold" /><span>linkedin.com/in/geetika-gehlot</span></li>
           </ul>
         </CVSection>
 
@@ -319,37 +361,122 @@ function CVContent() {
         </CVSection>
       </aside>
 
-      <main className="p-6 md:p-10 space-y-12">
+      <main className="p-6 md:p-10 space-y-10 overflow-y-auto max-h-[80vh]">
         <section>
-          <CVEyebrow>Intro</CVEyebrow>
-          <div className="space-y-4 text-base leading-relaxed max-w-2xl">
-            <p>I'm Geetika Gehlot, a multidisciplinary creator, scientist, performer, and producer based in Montréal. I work across STEM research, robotics, music production, video editing, writing, visual art, and event production.</p>
-            <p>Using FL Studio and DaVinci Resolve since 2020. Freelance design and event hosting since my early teens, paid, delivered, real. Currently serving as VP of the YMCA Youth Co-op and contributing to FRC robotics Team 7700.</p>
+          <CVEyebrow>Profile</CVEyebrow>
+          <div className="space-y-3 text-base leading-relaxed max-w-2xl text-ink-soft">
+            <p>Multidisciplinary student with advanced knowledge in physics, mathematics, biology, computer science, engineering, music, media production, and storytelling. Born in Rajasthan, India; relocated to Montréal, Canada in October 2024.</p>
+            <p>Experience across robotics, competitive academics, scientific research exposure, performing arts, television, music production, leadership, and multimedia creation across India and Canada.</p>
           </div>
         </section>
 
         <section>
           <CVEyebrow>Experience</CVEyebrow>
-          <div className="space-y-3">{experience.map((e) => <CVEntry key={e.role} icon={Briefcase} {...e} />)}</div>
+          <div className="space-y-3">{experience.map((e) => <CVEntry key={e.role + e.org} icon={Briefcase} {...e} />)}</div>
         </section>
 
         <section>
           <CVEyebrow>Education</CVEyebrow>
-          <div className="space-y-3">{education.map((e) => <CVEntry key={e.role} icon={GraduationCap} {...e} />)}</div>
+          <div className="space-y-3">{education.map((e) => <CVEntry key={e.org} icon={GraduationCap} {...e} />)}</div>
         </section>
 
         <section>
-          <CVEyebrow>License & Certification</CVEyebrow>
+          <CVEyebrow>Academic Achievements</CVEyebrow>
+          <div className="space-y-2 text-sm text-ink-soft leading-relaxed max-w-2xl">
+            <ul className="space-y-2">
+              {[
+                "Excelled AP Chemistry, AP Biology, AP Environmental Science, AP Physics C: Mechanics and E&M during Grade 10, first year in Canada",
+                "Prepared for SAT, AP Calculus BC, IIT JEE Mains & Advanced, NEET, Physics and Mathematics Olympiads",
+                "Achieved 100 in History and Mathematics and 97 in Science on EMSB ministry examinations",
+                "Winner of TCS ION IntelliGem national competition twice",
+                "Competed in SOF Olympiads, IOQM, JSO, and RMO — high rankings across all",
+                "Youngest attendee at Jun Ye's Anna McPherson physics seminar — McGill 2025",
+                "Hands-on cancer cell lab work: pipetting and gel electrophoresis — McGill 2025",
+                "Self-study in university-level physics, chemistry, biology, and mathematics from age 10–11",
+                "Advanced independent study: quantum mechanics, relativity, supersymmetry, astrophysics, particle physics",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="text-gold mt-1 shrink-0">·</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <CVEyebrow>Film, Television & Creative</CVEyebrow>
+          <div className="space-y-2 text-sm text-ink-soft leading-relaxed max-w-2xl">
+            <ul className="space-y-2">
+              {[
+                "Lead role in Salaam India on DD Kisan; Woh Apna Sa on Zee TV",
+                "Iss Pyar Ko Kya Naam Doon / Star Parivaar productions; Lead performer in ALTBalaji rhymes series (5 rhymes)",
+                "9XM 70th Independence Day promo; Asian Paints Eco Xpress advertisement",
+                "Voice work for Veere Di Wedding and Hindi Medium (Bollywood productions)",
+                "Creator of Endless Portals — 40+ drafted chapters, long-form fantasy & sci-fi universe",
+                "Sarees Bazaar UK international modelling; Gladrags Little Miss India Top Finalist",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="text-gold mt-1 shrink-0">·</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <CVEyebrow>Music & Performing Arts</CVEyebrow>
+          <div className="space-y-2 text-sm text-ink-soft leading-relaxed max-w-2xl">
+            <ul className="space-y-2">
+              {[
+                "Hindustani classical singing — guru-shishya tradition, stage performance experience",
+                "Electric guitar · Piano / keyboard",
+                "Jazz ensemble performer at Westmount High School",
+                "Bharatnatyam · Rajasthani folk dance · Freestyle dance · Gymnastics · Hula hoop · Aerobics",
+                "FL Studio composition, sound design, and DJ mixing since 2020",
+                "DaVinci Resolve editing and colour grading since 2020",
+                "Band-it Festival 2019: Level 2 participant, Furtado's School of Music",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="text-gold mt-1 shrink-0">·</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <CVEyebrow>Awards & Recognition</CVEyebrow>
           <div className="grid sm:grid-cols-2 gap-3">
             {certs.map((c) => (
               <div key={c.title} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold/10 text-gold"><Award className="h-4 w-4" /></span>
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold/10 text-gold shrink-0"><Award className="h-4 w-4" /></span>
                 <div>
                   <p className="font-display text-sm text-ink">{c.title}</p>
-                  <p className="text-xs text-ink-soft mt-0.5">{c.date}</p>
+                  {c.date && <p className="text-xs text-ink-soft mt-0.5">{c.date}</p>}
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section>
+          <CVEyebrow>Research & Scientific Interests</CVEyebrow>
+          <div className="flex flex-wrap gap-1.5">
+            {[
+              "High-energy physics", "Quantum mechanics", "Particle physics",
+              "Astrophysics", "Supersymmetry", "Engineering systems",
+              "Cancer cell biology", "Machine learning",
+            ].map((s) => <CVPill key={s}>{s}</CVPill>)}
+          </div>
+        </section>
+
+        <section>
+          <CVEyebrow>Sports & Activities</CVEyebrow>
+          <div className="flex flex-wrap gap-1.5">
+            {["Badminton", "Table Tennis", "Chess", "Karate", "Gymnastics", "Athletics"].map((s) => <CVPill key={s}>{s}</CVPill>)}
           </div>
         </section>
       </main>

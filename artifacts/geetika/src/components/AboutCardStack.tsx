@@ -37,96 +37,90 @@ function EssayPhoto({ src, alt, caption, align = "right" }: { src: string; alt: 
   );
 }
 
+const ESSAY_H3 = { fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(13px,1.1vw,15px)", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "hsl(43 70% 58%)", marginBottom: "1rem", opacity: 0.85 };
+const ESSAY_P = { fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" };
+
 function Essay() {
   return (
     <article style={{ maxWidth: "640px", margin: "0 auto" }}>
 
       <section style={{ marginBottom: "2.5rem" }}>
-        <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(13px,1.1vw,15px)", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "hsl(43 70% 58%)", marginBottom: "1rem", opacity: 0.85 }}>I. Origin</h3>
-        <EssayPhoto src={achCasual} alt="Geetika in casual wear" caption="Montréal, 2024" align="right" />
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 82%)", marginBottom: "1rem" }}>
-          <span style={{ float: "left", fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(3.2rem,5vw,4.2rem)", lineHeight: 0.78, fontWeight: 700, color: "hsl(43 78% 62%)", marginRight: "0.18em", marginTop: "0.08em" }}>I</span>
-          was born in Rajasthan, in the high-desert heart of India, where the architecture is rose-pink sandstone and the sky at night is so uninterrupted that the Milky Way looks less like a smear than a fact. The land there has a particular quality of light, hard, clarifying, indifferent to sentiment, that I carry with me still, as a standard of precision against which softer environments sometimes feel inadequate.
+        <h3 style={ESSAY_H3}>I. Profile</h3>
+        <EssayPhoto src={achCasual} alt="Geetika Gehlot, Montréal 2024" caption="Montréal, 2024" align="right" />
+        <p style={ESSAY_P}>
+          <span style={{ float: "left", fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(3.2rem,5vw,4.2rem)", lineHeight: 0.78, fontWeight: 700, color: "hsl(43 78% 62%)", marginRight: "0.18em", marginTop: "0.08em" }}>M</span>
+          ultidisciplinary student with advanced knowledge in physics, mathematics, biology, computer science, engineering, music, media production, and storytelling. Born in Rajasthan, India; relocated to Montréal, Canada in October 2024.
         </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          My family moved when I was young, first within India, tracking my father's work through cities whose names I associate with specific smells and textures: petrichor on hot concrete, cardamom in the afternoon, the particular silence of a new apartment before the furniture arrives. Each move was a small rehearsal for the larger one that came later, when we crossed an ocean and landed in Montréal.
+        <p style={ESSAY_P}>
+          Experience across robotics, competitive academics, scientific research, performing arts, television, music production, leadership, mentoring, and multimedia creation across India and Canada. Known for combining technical depth with large-scale creative execution across scientific, artistic, and entrepreneurial domains.
         </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          Canada was cold in ways I had not prepared for, and not only meteorologically. The social codes were different, the academic culture was different, the relationship between ambition and its expression was subtly but completely different. I spent a year and a half operating primarily in translation, not just between Hindi and French and English, but between entire frameworks for understanding what school was for, what talent meant, what it looked like to want something.
-        </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)" }}>
-          I am fifteen now. Most people my age have lived in one or two places. I have lived in four or five, depending on how you count. I do not think of this as loss, I think of it as a curriculum. You learn to read rooms quickly when you have had to read many unfamiliar ones. You learn to carry your identity with you rather than deriving it from geography, because geography keeps changing.
+        <p style={ESSAY_P}>
+          Languages: English, French, Hindi, and Marwari, the oral dialect of Rajasthan carried in the throat rather than on any page. Each language organises the world differently; living among them made every framework feel like a choice, not a fact.
         </p>
       </section>
 
       <section style={{ marginBottom: "2.5rem" }}>
-        <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(13px,1.1vw,15px)", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "hsl(43 70% 58%)", marginBottom: "1rem", opacity: 0.85 }}>II. Between Worlds</h3>
-        <EssayPhoto src={achAbacus} alt="Abacus medals" caption="Mental math, always" align="left" />
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          I speak four languages: English, French, Hindi, and Marwari. The last one is the language of my family, a dialect of Rajasthan that is unwritten, oral, carried in the throat rather than on any page. Each of these languages has its own grammar not only in the syntactic sense but in the epistemic sense, each one organises the world differently, makes different things sayable, privileges different kinds of knowledge.
+        <h3 style={ESSAY_H3}>II. Education</h3>
+        <EssayPhoto src={achAbacus} alt="Academic achievements and medals" caption="Mental math, always" align="left" />
+        <p style={ESSAY_P}>
+          Westmount High School, Montréal — Secondary V, expected 2026. Strong performance in mathematics, sciences, and humanities. Member of jazz ensemble. YMCA Youth Co-op leadership.
         </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          In Marwari, the formal and informal registers are so distant from each other that the same sentence changes character completely depending on whether you are speaking to an elder or a peer. In French, the subjunctive is a whole mood devoted to doubt, contingency, and wishful thinking, it has no direct English equivalent, and once you know it, you miss it when you write in English. In Hindi, the concept of <em>jugaad</em>, improvised, frugal, immediate problem-solving, does not translate cleanly into any European language because European languages do not have the same relationship to scarcity and resourcefulness.
+        <p style={ESSAY_P}>
+          Narayana Co Kaveri School — Advanced secondary program. One of India's most rigorous academic streams. Intensive STEM-focused preparation; university-level coursework in physics, chemistry, mathematics, and biology at age thirteen.
         </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)" }}>
-          Growing up between languages and cultures made me a better thinker. Not because I am confused about who I am, I am not, but because I learned early that every framework is a choice, not a fact. The way any given culture organises its assumptions is contingent, historical, revisable. That insight is the foundation of all critical thinking, and I received it before I could have articulated it, simply by being a person who had to navigate between worlds.
-        </p>
-      </section>
-
-      <section style={{ marginBottom: "2.5rem" }}>
-        <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(13px,1.1vw,15px)", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "hsl(43 70% 58%)", marginBottom: "1rem", opacity: 0.85 }}>III. The Scientist's Mind</h3>
-        <EssayPhoto src={achCrown} alt="Crown portrait" caption="Observing, always observing" align="right" />
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          Physics found me before I found it. I remember being seven years old, watching my father sketch orbital diagrams on the back of a receipt and explaining why the moon doesn't fall toward the Earth the way an apple does. Something clicked, not just the fact, but the machinery behind the explanation. That there could be a language precise enough to describe the universe felt miraculous.
-        </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          Mathematics is physics's companion. I moved through arithmetic into algebra, then into calculus and combinatorics, drawn less by academic obligation than by the specific pleasure of a proof that snaps shut. Olympiad mathematics taught me that the goal is never computation, it is the identification of the hidden structure underneath a problem, the moment when the labyrinth reveals its logic. Chess did the same work in real time: finite universe, unlimited complexity, intuition and calculation in constant negotiation.
-        </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)" }}>
-          Computer science completed the triangle. Code is the third language, after mathematics and English, in which I think most fluently. I built this site not because it was the simplest solution but because I wanted to understand the full stack: the data model, the component architecture, the type system, the deployment pipeline. Understanding the whole system is the only honest way to work at the edges where domains meet, and those edges are where I intend to spend my life.
+        <p style={ESSAY_P}>
+          Allen Career Institute, Top-most Batch — elite preparation for competitive STEM examinations. Advanced exposure to Olympiad-level mathematics and engineering problem-solving.
         </p>
       </section>
 
       <section style={{ marginBottom: "2.5rem" }}>
-        <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(13px,1.1vw,15px)", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "hsl(43 70% 58%)", marginBottom: "1rem", opacity: 0.85 }}>IV. The Creative Life</h3>
-        <EssayPhoto src={achSinging} alt="Singing performance" caption="Daily riyaaz, discipline as practice" align="left" />
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          I have been singing since before I had words for what I was doing. Hindustani classical vocal is not a hobby, it is a practice in the deepest sense of the word. The root of <em>riyaaz</em> is the same as the root of the word for repetition: you come to the tanpura every morning not because you are not yet good enough, but because perfection in this tradition is a direction, not a destination.
+        <h3 style={ESSAY_H3}>III. Academic Achievements</h3>
+        <EssayPhoto src={achCrown} alt="Recognition and awards portrait" caption="Observing, always" align="right" />
+        <p style={ESSAY_P}>
+          AP Chemistry, AP Biology, AP Environmental Science, and AP Physics C: Mechanics and E&M during Grade 10, first year in Canada. Preparation for SAT, AP Calculus BC, IIT JEE Mains and Advanced, NEET, Physics and Mathematics Olympiads.
         </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          I train in the guru-shishya tradition, a lineage that stretches back centuries. What I am learning is not only a repertoire of raagas and taals but an entire epistemology of listening. The classical form demands that you understand silence as structure, that you hear the space between notes as meaningfully as the notes themselves. This is not metaphor. In Hindustani music, the <em>gamak</em>, the ornament, derives its beauty from the clarity of what it departs from.
+        <p style={ESSAY_P}>
+          100 in History and Mathematics, 97 in Science on EMSB ministry examinations. Winner of TCS ION IntelliGem national competition twice. Competed in SOF Olympiads, IOQM, JSO, and RMO with high rankings across all.
         </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)" }}>
-          Writing is the other primary strand. I have been building a novel series, multiple volumes, a complete fictional world with its own geographies, languages, and histories, since I was twelve. The project has become a laboratory for every intellectual obsession I have: the physics of imaginary cosmologies, the linguistics of invented languages, the political economy of civilisations that never existed. Long-form fiction demands exactly the qualities that science rewards, patience with complexity, willingness to revise fundamental assumptions when the evidence demands it, and attention to the gap between intended meaning and received meaning.
+        <p style={ESSAY_P}>
+          Youngest attendee at Jun Ye's Anna McPherson physics seminar at McGill, 2025. Participated in hands-on cancer cell lab work including pipetting and gel electrophoresis. Self-study in university-level physics, chemistry, and mathematics from age ten. Advanced independent study in quantum mechanics, relativity, supersymmetry, astrophysics, and particle physics. School President and Female Class Valedictorian in Grades 3 and 5.
         </p>
       </section>
 
       <section style={{ marginBottom: "2.5rem" }}>
-        <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(13px,1.1vw,15px)", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "hsl(43 70% 58%)", marginBottom: "1rem", opacity: 0.85 }}>V. Robotics &amp; Engineering</h3>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          The first time I held a drill during FRC build season, I was terrified, not of the drill, but of building something that would have to work in front of people. Six weeks to design, fabricate, wire, and programme a competition robot from a kit of parts and a game manual. That is the premise of FIRST Robotics, and it is one of the most demanding creative environments I have entered.
+        <h3 style={ESSAY_H3}>IV. Engineering, Technical &amp; Creative Work</h3>
+        <p style={ESSAY_P}>
+          FRC Team 7700 — FIRST Robotics Competition, Montréal. Robotics engineering, fabrication, CAD design in Onshape and SolidWorks, systems thinking, and competition preparation across full build and competition seasons.
         </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          Team 7700 changed how I think about making things. The build season is a compressed version of every engineering project that exists: the initial excitement of the design phase, the brutal middle weeks when nothing works as specified, the integration hell when subsystems that tested fine individually refuse to cooperate, and then, if you have done the work, the clarity when the machine does exactly what you built it to do.
+        <p style={ESSAY_P}>
+          React, TypeScript, Python, FL Studio since 2020, DaVinci Resolve since 2020. Creator of Endless Portals: a long-form fantasy and science-fiction universe with over forty drafted chapters across interconnected storylines, built since age twelve.
         </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)" }}>
-          I learned CAD in Onshape and SolidWorks, gained hands-on experience with fabrication and pneumatics, and contributed to the programming side. But the most important thing I learned was not any particular tool, it was how to debug a system whose components you do not fully understand, under time pressure, with imperfect information. That skill transfers everywhere: writing code, revising a manuscript, preparing for a physics exam. Every domain I work in is, at some level, a system. Engineering taught me to engage those systems honestly.
+        <p style={ESSAY_P}>
+          Lead role in Salaam India on DD Kisan; Woh Apna Sa on Zee TV; Star Parivaar productions; lead performer in ALTBalaji rhymes series. Voice work for Veere Di Wedding and Hindi Medium. Freelance design and event hosting since early teens, paid and delivered.
+        </p>
+      </section>
+
+      <section style={{ marginBottom: "2.5rem" }}>
+        <h3 style={ESSAY_H3}>V. Music, Media &amp; Performing Arts</h3>
+        <EssayPhoto src={achSinging} alt="Singing performance on stage" caption="Daily riyaaz, discipline as practice" align="left" />
+        <p style={ESSAY_P}>
+          Hindustani classical singing under the guru-shishya tradition. Stage performance experience and advanced vocal technique development. Electric guitar and piano. Participated in jazz concerts at Westmount High School.
+        </p>
+        <p style={ESSAY_P}>
+          Bharatnatyam, Rajasthani folk dance, freestyle dance, gymnastics, hula hoop, and aerobics. FL Studio composition, sound design, and DJ mixing since 2020. Band-it Festival 2019: Level 2 participant, Furtado's School of Music. Sarees Bazaar UK international modelling. Top finalist in Gladrags Little Miss India.
         </p>
       </section>
 
       <section style={{ marginBottom: "0" }}>
-        <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(13px,1.1vw,15px)", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", color: "hsl(43 70% 58%)", marginBottom: "1rem", opacity: 0.85 }}>VI. What I Am Building</h3>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          This site is an artifact. It is not a portfolio in the conventional sense, a curated highlights reel arranged to impress a particular audience. It is a working dossier: every claim backed by evidence, every skill accompanied by a receipt, every curiosity documented in the process of its exploration.
+        <h3 style={ESSAY_H3}>VI. Leadership, Awards &amp; Beyond</h3>
+        <p style={ESSAY_P}>
+          YMCA Youth Co-op: President, NDG-Westmount, 2025. Led youth cooperative team in Montréal through finance, marketing, human resources, and organizational development. Westmount Library Studio Volunteer, 2025: mentored children in coding and digital creativity.
         </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          I am fifteen, which means the future is genuinely open in a way it will not always be. I do not have a single dream career, I have a working model of how disciplines intersect, and a strong conviction that the most interesting work happens at the places where fields meet and borrow from each other. Whether the trajectory leads toward research physics, computational design, literary fiction, or something that does not yet have a name, the thread is the same: build things that matter, and prove that they work.
-        </p>
-        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(15px,1.25vw,17px)", lineHeight: 1.82, color: "hsl(220 15% 78%)", marginBottom: "1rem" }}>
-          The dossier is the argument. Everything else on this site is the evidence. The AP courses, the robotics build logs, the vocal performances, the manuscript excerpts, the physics problems, all of it adds up to a single claim: that a person can pursue many things rigorously, that breadth and depth are not opposites, that the disciplines reward each other when you let them.
+        <p style={ESSAY_P}>
+          Hundreds of school-level and academic awards across multiple disciplines. CPR and First Aid Certified. Sports: badminton, table tennis, chess, karate. Research interests: high-energy physics, quantum mechanics, particle physics, astrophysics, supersymmetry, engineering systems.
         </p>
         <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(14px,1.1vw,16px)", lineHeight: 1.82, fontStyle: "italic", color: "hsl(43 60% 55%)", borderLeft: "2px solid hsl(43 60% 55% / 0.35)", paddingLeft: "1.25rem", marginBottom: "3rem" }}>
-          I am building a life where curiosity is not a luxury but the method itself, where every question leads somewhere real, every discipline is a tool, and the work is always, in some sense, not yet finished.
+          A life built on curiosity across every domain: science, engineering, music, story, screen, and beyond. Every discipline is a tool. The work is always, in some sense, not yet finished.
         </p>
       </section>
     </article>

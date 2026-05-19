@@ -30,6 +30,8 @@ export type BentoItem = {
   /** Long-form detail rendered inside the modal. Defaults to blurb if absent. */
   detail?: ReactNode;
   accent?: "gold" | "navy" | "paper";
+  /** CSS object-position for the background image, e.g. "top center", "50% 20%" */
+  imagePosition?: string;
 };
 
 const SIZE_CLASS: Record<BentoSize, string> = {
@@ -93,6 +95,7 @@ export function BentoCard({ item, randomize = false }: { item: BentoItem; random
               src={item.image}
               alt={item.imageAlt ?? ""}
               loading="lazy"
+              style={{ objectPosition: item.imagePosition ?? "top center" }}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div
@@ -172,7 +175,7 @@ export function BentoCard({ item, randomize = false }: { item: BentoItem; random
         <DialogContent className="visible-popup-panel force-light !z-[1200] max-w-3xl p-0 overflow-y-auto">
           {hasImage && (
             <div className="relative aspect-[16/9] overflow-hidden crumpled-paper leak">
-              <img src={item.image} alt={item.imageAlt ?? ""} className="w-full h-full object-cover" />
+              <img src={item.image} alt={item.imageAlt ?? ""} style={{ objectPosition: item.imagePosition ?? "top center" }} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-transparent" />
             </div>
           )}

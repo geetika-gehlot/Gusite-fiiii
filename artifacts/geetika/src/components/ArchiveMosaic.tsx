@@ -32,7 +32,7 @@ function TilePreview({ gallery }: { gallery: EmbedItem[] }) {
             src={item.src}
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-top"
           />
         </div>
       );

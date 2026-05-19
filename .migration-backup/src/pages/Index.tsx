@@ -20,37 +20,36 @@ import atmosMusic from "@/assets/atmos-music.jpg";
 /* -------------------- HERO SLIDESHOW -------------------- */
 const HERO_SLIDES: Slide[] = [
   {
-    src: heroPortrait, alt: "Geetika performing Hindustani classical vocal on stage",
-    tone: "light", eyebrow: "Singing Artist: Hindustani Classical"
-    title: "",
-    body: "Stage performances & training with the guru-shishya tradition of Indian classical music.",
+    src: heroPortrait, alt: "Geetika Gehlot, portrait",
+    tone: "light", eyebrow: "Geetika Gehlot · I",
+    title: "Building worlds.",
+    body: "Scientist · Researcher · Creator · Musician · Storyteller · Innovator. A 15-year-old multidisciplinary mind from Montréal.",
   },
   {
-    src: atmosTelescope, alt: "Acting",
-    tone: "light", eyebrow: "Child Artist · Star Plus · National Television",
-    title: "",
-    body: "On set with Barun Sobti and Ridhi Dogra, Iss Pyar Ko Kya Naam Doon.",
+    src: atmosTelescope, alt: "Telescope under stars",
+    tone: "light", eyebrow: "Plate II · Observation",
+    title: "Through the lens.",
+    body: "Robotics, physics, and the slow art of paying attention.",
   },
   {
     src: atmosNotebook, alt: "Open notebook with handwritten pages",
-    tone: "dark", eyebrow: "Scientist · McGill Cancer Cell Lab · March 2025",
-    title: "",
+    tone: "dark", eyebrow: "Plate III · Notation",
+    title: "On the page.",
     body: "A novel cycle in motion. Words before pixels, always.",
   },
   {
     src: atmosMusic, alt: "Stage lights and microphone",
     tone: "light", eyebrow: "Plate IV · Resonance",
-    title: "",
-    body: "Constellations, Black Voids & Shooting Stars",
+    title: "In full voice.",
+    body: "Hindustani vocal, voice acting, and the discipline of stage.",
   },
   {
     src: texturePaper, alt: "Aged paper texture",
     tone: "dark", eyebrow: "Plate V · Dossier",
-    title: "",
-    body: "Youngest attendee at a Nobel-adjacent physics lecturar's seminar.",
+    title: "Examined in public.",
+    body: "Every claim, every clipping, every receipt, open for inspection.",
   },
 ];
-
 
 /* -------------------- SKILLS TOOLKIT -------------------- */
 const SKILLS: { icon: React.ComponentType<{ className?: string }>; label: string; level: string }[] = [

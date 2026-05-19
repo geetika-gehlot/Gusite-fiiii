@@ -6,7 +6,7 @@ import {
 import { PageShell } from "@/components/SiteChrome";
 import { Bento, type BentoItem } from "@/components/Bento";
 import { HeroSlideshow, type Slide } from "@/components/HeroSlideshow";
-import { CLUSTERS, findCluster } from "@/data/clusters";
+import { CLUSTERS } from "@/data/clusters";
 import { useReveal } from "@/hooks/useReveal";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import textureCosmos from "@/assets/texture-cosmos.jpg";
@@ -20,31 +20,31 @@ const HERO_SLIDES: Slide[] = [
   {
     src: heroPortrait, alt: "Geetika Gehlot, portrait",
     tone: "light", eyebrow: "Geetika Gehlot · I",
-    title: "Building worlds.",
+    title: "",
     body: "Scientist · Researcher · Creator · Musician · Storyteller · Innovator. A 15-year-old multidisciplinary mind from Montréal.",
   },
   {
     src: atmosTelescope, alt: "Telescope under stars",
     tone: "light", eyebrow: "Plate II · Observation",
-    title: "Through the lens.",
+    title: "",
     body: "Robotics, physics, and the slow art of paying attention.",
   },
   {
     src: atmosNotebook, alt: "Open notebook with handwritten pages",
     tone: "dark", eyebrow: "Plate III · Notation",
-    title: "On the page.",
+    title: "",
     body: "A novel cycle in motion. Words before pixels, always.",
   },
   {
     src: atmosMusic, alt: "Stage lights and microphone",
     tone: "light", eyebrow: "Plate IV · Resonance",
-    title: "In full voice.",
+    title: "",
     body: "Hindustani vocal, voice acting, and the discipline of stage.",
   },
   {
     src: texturePaper, alt: "Aged paper texture",
     tone: "dark", eyebrow: "Plate V · Dossier",
-    title: "Examined in public.",
+    title: "",
     body: "Every claim, every clipping, every receipt, open for inspection.",
   },
 ];
@@ -72,35 +72,100 @@ const FEATURED: BentoItem[] = [
     id: "f-frc", size: "xl", eyebrow: "Robotics",
     title: "FRC Team 7700",
     blurb: "Build seasons, mechanical instinct, and the controlled chaos of competition robotics.",
-    image: atmosTelescope, meta: "Cluster 04 · Robotics",
-    detail: "From CAD reviews at midnight to driver-station nerves on game day, Team 7700 is where I learned to design under deadline, debug under pressure, and trust a team. Click through to the cluster for the full build log.",
+    image: "/photo-robotics-pit.jpg", meta: "Cluster 04 · Robotics",
+    detail: (
+      <div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem", marginBottom: "1rem" }}>
+          <img src="/photo-robotics-pit.jpg" alt="FRC 7700 Pit Work" style={{ width: "100%", borderRadius: "4px", objectFit: "cover", aspectRatio: "4/3" }} />
+          <img src="/photo-robotics-hub.jpg" alt="FRC 7700 Workshop" style={{ width: "100%", borderRadius: "4px", objectFit: "cover", aspectRatio: "4/3" }} />
+          <img src="/photo-wie-build.jpg" alt="WIE Build Challenge" style={{ width: "100%", borderRadius: "4px", objectFit: "cover", aspectRatio: "4/3" }} />
+          <img src="/photo-singappenny.jpg" alt="Singappenny's 2025" style={{ width: "100%", borderRadius: "4px", objectFit: "cover", aspectRatio: "4/3" }} />
+        </div>
+        <p>From CAD reviews at midnight to driver-station nerves on game day, Team 7700 is where I learned to design under deadline, debug under pressure, and trust a team. Six weeks every season to design, fabricate, wire, and programme a full competition robot from a kit of parts. The build log runs deep.</p>
+      </div>
+    ),
   },
   {
     id: "f-novel", size: "lg", eyebrow: "Writing",
     title: "The Novel Cycle",
     blurb: "A multi-book story world I've been building for years.",
-    image: atmosNotebook, meta: "Cluster 05 · Writing",
+    image: "/photo-screenplay-board.jpg", meta: "Cluster 05 · Writing",
+    detail: (
+      <div>
+        <img src="/photo-screenplay-board.jpg" alt="Story structure board" style={{ width: "100%", borderRadius: "4px", marginBottom: "1rem", objectFit: "cover", aspectRatio: "16/9" }} />
+        <p>Long-form fictional writing project: multiple interconnected narratives, structured worldbuilding, and a sustained multi-year writing output. Story structure boards map the full arc, three-act structure, character flaws, midpoint reversals, and thematic through-lines. Building since age twelve.</p>
+      </div>
+    ),
   },
   {
     id: "f-vocal", size: "md", eyebrow: "Performance",
     title: "Hindustani Vocal",
     blurb: "Stage repertoire, raagas, and live performance reels.",
-    image: atmosMusic, meta: "Cluster 06 · Music",
+    image: "/photo-singing.jpg", meta: "Cluster 06 · Music",
+    detail: (
+      <div>
+        <img src="/photo-singing.jpg" alt="Stage performance" style={{ width: "100%", borderRadius: "4px", marginBottom: "1rem", objectFit: "cover", aspectRatio: "16/9" }} />
+        <div style={{ display: "grid", gap: "0.75rem", marginBottom: "1rem" }}>
+          <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+            <iframe src="https://www.youtube.com/embed/DiAoqNQJzRU" title="Bharatnatyam Performance" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", borderRadius: "4px", border: "none" }} allowFullScreen />
+          </div>
+          <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+            <iframe src="https://www.youtube.com/embed/5QBuTpvBKiw" title="Rajasthani Dance Performance" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", borderRadius: "4px", border: "none" }} allowFullScreen />
+          </div>
+        </div>
+        <p>Training and performance in Hindustani classical music under the guru-shishya tradition. Raga-based singing, rhythmic practice, and stage participation. Years of daily riyaaz. Also trained in Bharatnatyam and Rajasthani folk dance.</p>
+      </div>
+    ),
   },
   {
     id: "f-ap", size: "md", eyebrow: "Academics",
     title: "AP Track + Olympiads",
-    blurb: "The transcript backing the curiosity.", meta: "Cluster 02 · Academics",
+    blurb: "The transcript backing the curiosity.",
+    image: "/photo-jun-ye-selfie.jpg", meta: "Cluster 02 · Academics",
+    detail: (
+      <div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem", marginBottom: "1rem" }}>
+          <img src="/photo-jun-ye-selfie.jpg" alt="With Dr. Jun Ye at McGill" style={{ width: "100%", borderRadius: "4px", objectFit: "cover", aspectRatio: "4/3" }} />
+          <img src="/photo-narayana-principal.jpg" alt="Narayana School highest batch" style={{ width: "100%", borderRadius: "4px", objectFit: "cover", aspectRatio: "4/3" }} />
+          <img src="/photo-allen-physics.jpg" alt="Allen Institute physics notes" style={{ width: "100%", borderRadius: "4px", objectFit: "cover", aspectRatio: "4/3" }} />
+          <img src="/photo-lab-microscope.jpg" alt="Cancer cell lab session" style={{ width: "100%", borderRadius: "4px", objectFit: "cover", aspectRatio: "4/3" }} />
+        </div>
+        <p>AP Biology, AP Environmental Science, AP Physics C: E&amp;M and Mechanics, AP Calculus AB, AP Chemistry, AP English Literature, AP Microeconomics, AP Macroeconomics, AP Psychology — all taken within two years. Zero fails. Plus competitive olympiad training and attendance at Nobel-adjacent physics lectures.</p>
+      </div>
+    ),
   },
   {
     id: "f-acting", size: "md", eyebrow: "Screen",
     title: "Child Artist Reel",
-    blurb: "Years on screen, in front of a camera and a microphone.", meta: "Cluster 07 · Acting",
+    blurb: "Years on screen, in front of a camera and a microphone.",
+    image: "/tv-altbalaji.png", meta: "Cluster 07 · Acting",
+    detail: (
+      <div>
+        <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, marginBottom: "1rem" }}>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLa3Wj4jzB_6FG8GcJA41Lx2JGtABeQN5f" title="Child Artist Full Reel" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", borderRadius: "4px", border: "none" }} allowFullScreen />
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem", marginBottom: "1rem" }}>
+          <img src="/tv-ddkisan.png" alt="DD Kisan Salaam India" style={{ width: "100%", borderRadius: "4px", objectFit: "cover" }} />
+          <img src="/tv-zeeholi.png" alt="Zee TV Woh Apna Sa" style={{ width: "100%", borderRadius: "4px", objectFit: "cover" }} />
+          <img src="/tv-altbalaji.png" alt="Alt Balaji Rhymes Series" style={{ width: "100%", borderRadius: "4px", objectFit: "cover" }} />
+          <img src="/tv-asianpaints.png" alt="Asian Paints Eco Xpress" style={{ width: "100%", borderRadius: "4px", objectFit: "cover" }} />
+        </div>
+        <p>Zee TV · Star Parivaar · DD Kisan · Alt Balaji · 9XM · Asian Paints · Gladrags Little Miss India Top 7. Dubbing for Veere Di Wedding & Hindi Medium. Lead roles, supporting credits, voice work, and modelling across Indian national media.</p>
+      </div>
+    ),
   },
   {
     id: "f-zion", size: "md", eyebrow: "Tech",
     title: "Zionaxelle",
-    blurb: "A multimedia universe I built from scratch.", meta: "Cluster 08 · Tech",
+    blurb: "A multimedia universe I built from scratch.",
+    image: "/photo-studio.jpg", meta: "Cluster 08 · Tech",
+    detail: (
+      <div>
+        <img src="/photo-studio.jpg" alt="Studio and production setup" style={{ width: "100%", borderRadius: "4px", marginBottom: "1rem", objectFit: "cover", aspectRatio: "16/9" }} />
+        <img src="/photo-dj-software.jpg" alt="DaVinci Resolve and production work" style={{ width: "100%", borderRadius: "4px", marginBottom: "1rem", objectFit: "cover", aspectRatio: "16/9" }} />
+        <p>Multimedia creative brand project involving design, web presence, visual identity, content strategy, and production pipeline. Self-designed from the ground up as a coherent creative universe. FL Studio since 2020, DaVinci Resolve since 2020, full-stack web development. Visit: zionaxelle.com</p>
+      </div>
+    ),
   },
 ];
 
@@ -333,9 +398,9 @@ const Index = () => {
       <section className="container py-8 md:py-10">
         <div className="grid md:grid-cols-3 gap-2">
           {[
-            { src: atmosTelescope, label: "Observation", num: "I" },
-            { src: atmosNotebook, label: "Notation", num: "II" },
-            { src: atmosMusic, label: "Resonance", num: "III" },
+            { src: "/photo-gladrags-solo.jpg", label: "Observation", num: "I" },
+            { src: "/photo-ymca-event.jpg", label: "Notation", num: "II" },
+            { src: "/photo-karate.jpg", label: "Resonance", num: "III" },
           ].map((x, idx) => (
             <figure
               key={x.label}

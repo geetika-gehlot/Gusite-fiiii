@@ -8,7 +8,6 @@ import { Bento, type BentoItem } from "@/components/Bento";
 import { HeroSlideshow, type Slide } from "@/components/HeroSlideshow";
 import { CLUSTERS } from "@/data/clusters";
 import { useReveal } from "@/hooks/useReveal";
-import heroPortrait from "@/assets/hero-portrait.jpg";
 import textureCosmos from "@/assets/texture-cosmos.jpg";
 import texturePaper from "@/assets/texture-paper.jpg";
 import atmosTelescope from "@/assets/atmos-telescope.jpg";
@@ -18,34 +17,52 @@ import atmosMusic from "@/assets/atmos-music.jpg";
 /* -------------------- HERO SLIDESHOW -------------------- */
 const HERO_SLIDES: Slide[] = [
   {
-    src: heroPortrait, alt: "Geetika Gehlot, portrait",
-    tone: "light", eyebrow: "Geetika Gehlot · I",
+    src: "/photo-singing.jpg",
+    alt: "Geetika performing Hindustani classical vocal on stage",
+    tone: "light",
+    eyebrow: "Singing Artist: Hindustani Classical",
     title: "",
-    body: "Scientist · Researcher · Creator · Musician · Storyteller · Innovator. A 15-year-old multidisciplinary mind from Montréal.",
+    body: "Stage performances & training with the guru-shishya tradition of Indian classical music.",
   },
   {
-    src: atmosTelescope, alt: "Telescope under stars",
-    tone: "light", eyebrow: "Plate II · Observation",
+    src: "/photo-starparivar-set.jpg",
+    alt: "Geetika on the Star Parivaar set with National Stars: Barun Sobti and Ridhi Dogra",
+    tone: "light",
+    eyebrow: "Child Artist · Star Plus · National Television",
     title: "",
-    body: "Robotics, physics, and the slow art of paying attention.",
+    body: "On set with Barun Sobti and Ridhi Dogra, Iss Pyar Ko Kya Naam Doon.",
   },
   {
-    src: atmosNotebook, alt: "Open notebook with handwritten pages",
-    tone: "dark", eyebrow: "Plate III · Notation",
+    src: "/photo-lab-team.jpg",
+    alt: "Geetika with the McGill cancer cell research lab team",
+    tone: "light",
+    eyebrow: "Scientist · McGill Cancer Cell Lab · March 2025",
     title: "",
-    body: "A novel cycle in motion. Words before pixels, always.",
+    body: "Gel electrophoresis, Zeiss microscopy, pipetting",
   },
   {
-    src: atmosMusic, alt: "Stage lights and microphone",
-    tone: "light", eyebrow: "Plate IV · Resonance",
+    src: "/photo-moon-stargazing.jpg",
+    alt: "Rooftop night sky observation, stargazing and meteor tracking",
+    tone: "light",
+    eyebrow: "Self-Taught Junior Astronomer",
     title: "",
-    body: "Hindustani vocal, voice acting, and the discipline of stage.",
+    body: "Constellations, Black Voids & Shooting Stars",
   },
   {
-    src: texturePaper, alt: "Aged paper texture",
-    tone: "dark", eyebrow: "Plate V · Dossier",
+    src: "/photo-jun-ye-selfie.jpg",
+    alt: "Geetika with quantum physicist Dr. Jun Ye at McGill",
+    tone: "light",
+    eyebrow: "Physicist · Jun Ye's Anna McPherson Seminar · McGill 2025",
     title: "",
-    body: "Every claim, every clipping, every receipt, open for inspection.",
+    body: "Youngest attendee at a Nobel-adjacent physics lecturar's seminar.",
+  },
+  {
+    src: "/photo-robotics-pit.jpg",
+    alt: "FRC Team 7700, competition robotics pit work",
+    tone: "light",
+    eyebrow: "Engineer · FRC Team 7700",
+    title: "",
+    body: "Builds, mechanicals, and teamwork in competition robotics.",
   },
 ];
 
